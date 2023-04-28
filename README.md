@@ -1,245 +1,218 @@
-# printf
+# ALX Software Engineering Programme: Printf project
 
-### Description
+A program for converting formatted output in C, developed as part of the low-level programming and algorithm track at ALX Software Engineering Programme. The program emulates the C standard library function, `printf`.
 
-------------
+## Dependencies
 
-[![printf.jpg](https://i.postimg.cc/QtBH3tmV/printf.jpg)](https://postimg.cc/S2hyLmwp)
+The `_printf` function was coded on an Ubuntu 20.04.1 LTS machine with `gcc` version 9.4.0.
 
-The printf function sends formatted output to stdout.
-A custom _printf() for learning purposes was developed by cohort  #8 students Nicks and Musa parsanka.
-_printf() function format string is a character string, beginning and ending in its initial shift state, if any. 
-These arguments are placed using the percentage '%' operator
-
-------------
-
-
-#### Resources
-
-------------
-
-
-
-Secrets of printfby Don colton
-https://www.cypress.com/file/54761/download
-
-------------
-
-
-
-#### Authorized functions and macros
-
-------------
-
-
-write (man 2 write)
-malloc (man 3 malloc)
-free (man 3 free)
-va_start (man 3 va_start)
-va_end (man 3 va_end)
-va_copy (man 3 va_copy)
-va_arg (man 3 va_arg)
-
-------------
-
-#### Compilation
-
-------------
-
-
-
-The code must be compiled this way:
-
-**$ gcc -Wall -Werror -Wextra -pedantic *.c**
-
-As a consequence, be careful not to push any c file containing a main function in the root directory of your project (you could have a test folder containing all your tests files including main functions)
-
-The main files will include your main header file (main.h): **#include main.h**
-
-------------
-
-#### Use & Examples
-
-
-------------
-
-**Prototype:** int _printf(const char *format, ...);
-**Use - General:** _printf("format string", var1, var2, ...);
-
-**Examples:**
- - Basic String: _printf("%s Alx", "Hello");`
-	 - Output: Hello Alx
-
-- Print integers: _printf("This is an array element: arr[%d]:%c", 32, arr[32]);`
-	- Output: This is an array element arr[32]:A
-
-Many other specifiers and flags were added and by combinig those the _printf() function generate a different ouput. The following list are the specifiers and flags allowed.
-
-------------
-
-#### Use & Examples
-
-
-------------
-
-###### Specifiers
-
-Specifier                |Output                        |Examples |
-|----------------|-------------------------------|-----------------------------|
-| `c` | Character | y |
-| `d` or `i` | Signed integer | 1024, -1024 |
-| `s` | String of characters | Hello Alx |
-| `b` | Binary Representation of unsigned integer | 01010110 |
-| `u` | Unsigned integer | 1024 |
-| `o` | Unsigned octal | 432 |
-| `x` | Unsigned hexadecimal integer | 3ca |
-| `X` | Unsigned hexadecimal integer (uppercase) | 3CA |
-| `S` | String with hex-ascii value replacing special chars | \x0A\x0A |
-| `p` | Pointer address | 0x403212 |
-| `r` | Reversed string of characters | dlroW olleH |
-| `R` | ROT13 Translation of string | Uryyb |
-
-###### Flags (In development...)
-
-|Flag                |Description                        |
-|----------------|-------------------------------|
-| `-` |Left-justify the output within the field width that was given; Right justification is the default (see _width_ sub-specifier). |
-| `+` |Preceeds the result with a plus or minus sign (`+` or `-`) even for positive numbers. By default, only negative numbers are preceded with a `-` sign. |
-| `(space)` |If no sign is going to be written, a blank space is inserted before the value. |
-| `#` |Used with `o`, `x` or `X` specifiers the value is preceeded with 0, 0x or 0X respectively for values different than zero. |
-| `0` |Left-pads the number with zeroes (`0`) instead of spaces when padding is specified (see _width_ sub-specifier). |
-
-###### Width (In development...)
-
-|Width                |Description                        |
-|----------------|-------------------------------|
-| `(number)` |Minimum number of characters to be printed. If the value to be printed is shorter than this number, the result is padded with blank spaces. The value is not truncated even if the result is larger.|
-| `*` | The _width_ is not specified in the _format_ string, but as an additional integer value argument preceding the argument that has to be formatted.|
-
-### Precision (In development...)
-
-|.Precision               |Description                        |
-|----------------|-------------------------------|
-| `.(number)` |**For integer specifiers (`d`, `i`, `o`, `u`, `x`, `X`):** _precision_ specifies the minimum number of digits to be written. If the value to be written is shorter than this number, the result is padded with leading zeros. The value is not truncated even if the result is longer. A _precision_ of 0 means that no character is written for the value 0. **For `s`**: this is the maximum number of characters to be printed. By default all characters are printed until the ending null character is encountered. If the period is specified without an explicit value for _precision_, 0 is assumed. |
-
-### Lenght modifiers (In development...)
-
-|Modifier/Specifier  |`d` & `i`  |`u`, `o`, `x`, `X` |`c` |`s` |`p` |
-|----------------|---------|------------|-------------|-----|-------|
-| `none` | int |unsigned int | int| char pointer| void pointer |
-| `h` |short int|unsigned short int |     |     |              |
-| `l` |long int |unsigned long int  |     |     |              |
-
-------------
-
-#### Files contained in this repository
-
-
-------------
-
-|Name                |Information                        |Relevant Files                         |
-|----------------|-------------------------------|-----------------------------|
-|`man_3_printf`|Man page of the _printf() function.| `None` |
-|`main.h`	| Header file with the data type struct, standard libraries and custom prototypes.| `*.c compilation` |
-|`_printf.c`|Main printf function file. Calls other functions.|`printf_(name of var).c file` |
-|`printf_37.c`|Contains percentage print function.|`None` |
-|`printf_int.c` | Contains decimal and integer functions. | `None` | 
-`printf_char.c` | Custom function for char data type. | `None`
-|`printf_sting.c` | Function that calls string type variable. | `None` |
-|`printf_bin.c` | Function that gets the binary | `None` |
-`printf_oct.c` | Functions that returns octal number. | `None` |
-`printf_hex.c` | Calls hexadecimal numbers (lowercase). | `None` | 
-`printf_HEX.c` | Calls hexadecimal numbers (Uppercase). | `None` |
-`printf_unsigned.c` | Returns an unisgined data type. | `None` |
-`printf_hex_aux.c` | Auxiliar function for hexadecimal specific functions (lowercase). | `printf_exclusive_string.c` | 
-`printf_HEX_aux.c` | Auxiliar function hexadecimal specific functions (Uppercase). | `printf_p.c` |
-`printf_exclusive_string.c` | Returns a string and non readable characters are printed in hexadecimal numbers (Lowercase). | `printf_hex_aux.c` |
-`printf_srev.c` | Returns a string in reverse. | `None` |
-`printf_rot13.c` | Returns a string in Rot13. | `None` |
-`printf_str.c` | Auxiliar functions such as strlen and strcpy. | `None` |
-`_putchar.c` | Custom putchar function. | `None` |
-
-
-------------
-
-#### Tasks required for this project
-
-
-------------
-
-0. ###### I am not going anywhere. You can print that wherever you want to. I'm here and I am a Spur for life1.  I am not going anywhere. You can print that wherever you want to. I'm here and I am a Spur for life. 
-Write a function that produces output according to a format.
-Handle the following conversion specifiers:
-- c
-- s
-- %
-
-1. ###### Education is when you read the fine print. Experience is what you get if you dont
-Handle the following conversion specifiers:
-- d
-- i
-
-2. ###### Just because its in print doesn't mean its the gospel
-Create a man page for the function
-
-3. ###### With a face like mine, I do better in print
-Handle the following conversion specifiers:
-- b
-
-4. ###### What one has not experienced, one will never understand in print
-Handle the following conversion specifiers:
-- u
-- x
-- o
-- x
-- X
-
-5. ###### Nothing in fine print is ever good news
-Use a local buffer of 1024 chars in order to call write as little as possible.
-
-6. ###### Handle the following custom conversion specifier
-- S : prints the string.
-- Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters).
-
-7. ###### How is the world ruled and led to war? Diplomats lie to journalists and believe these lies when they see them in print
-Handle the following conversion specifier: p
-
-8. ###### The big print gives and the small print takes away
-Handle the following flag characters for non-custom conversion specifiers:
-- ´+´
-- space
-- ´#´ 
-
-9. ###### Sarcasm is lost in print
-Handle the following length modifiers for non-custom conversion specifiers:
-- l
-- h
-Conversion specifiers to handle: d, i, u, o, x, X
-
-10. ###### Print some money and give it to us for the rain forests
-Handle the field width for non-custom conversion specifiers.
-
-11. ###### The negative is the equivalent of the composer's score, and the print the performance
-Handle the precision for non-custom conversion specifiers.
-
-12. ###### It's depressing when you're still around and your albums are out of print
-Handle the 0 flag character for non-custom conversion specifiers.
-
-13. ###### Every time that I wanted to give up, if I saw an interesting textile, print what ever, suddenly I would see a collection
-Handle the - flag character for non-custom conversion specifiers.
-
-14. ###### Print is the sharpest and the strongest weapon of our party
-Handle the following custom conversion specifier:
- - r : prints the reversed string
-
-15. ###### The flood of print has turned reading into a process of gulping rather than savoring 
-Handle the following custom conversion specifier:
-- R: prints the rot13'ed string
-
-16. ###### *
-All the above options work well together.
-
-### Authors &copy;
-
-- Nicks
-- Musa Parsanka
+## Usage
+
+To use the `_printf` function, assuming the above dependencies have been installed,
+compile all `.c` files in the repository and include the header `main.h` with
+any main function.
+
+Example `main.c`:
+```
+#include "main.h"
+
+int main(void)
+{
+    _printf("Hello, World!");
+
+    return (0);
+}
+```
+
+Compilation:
+```
+$ gcc *.c -o tester
+```
+
+Output:
+```
+$ ./tester
+Hello, World!
+$
+```
+
+## Description 
+
+The `_printf` function produces output to the standard output. It is directed by a `format` string that dictates the manner in which subsequent arguments (obtained through the variable-length argument capabilities of `stdarg`) are transformed for output.
+
+Prototype: `int _printf(const char *format, ...);`
+
+### Return Value
+
+When executed successfully, `_printf` returns the quantity of characters printed (not including the null byte utilized to finish output to strings). In the event of an output error, the function returns `-1`.
+
+### Format of the Argument String
+
+The `format` string argument is a fixed sequence of characters that may include zero or more instructions. Characters that are not `%` are replicated in their original form to the output stream. Conversion specifications, however, extract zero or more additional arguments. A conversion specification starts with the `%` character and ends with a conversion specifier. Between the `%` character and the conversion specifier, there could be (in order) zero or more _flags_, an optional minimal _field width_, an optional _precision_, and an optional _length_ modifier. The arguments must align with the conversion specifier and are processed in the order they are given.
+
+#### Conversion Specifiers
+
+The conversion specifier, which begins with the character `%`, is a character that determines the type of conversion to be executed. The `_printf` function can handle the following types of conversion specifiers:
+
+#### [d, i](https://github.com/sayedali1/printf/blob/main/_putint.c)
+The `int` argument is transformed into a signed decimal or integer representation.
+
+Example `main.c`:
+```
+int main(void)
+{
+    _printf("%d\n", 7);
+}
+```
+Output:
+```
+7
+```
+
+#### [b](https://github.com/sayedali1/printf/blob/main/print_bi.c)
+The `unsigned int` argument is transformed into an unsigned decimal representation.
+
+Example `main.c`:
+```
+int main(void)
+{
+    _printf("%b\n", 7);
+}
+```
+Output:
+```
+111
+```
+
+#### [o](https://github.com/sayedali1/printf/blob/main/print_octal.c), [u](https://github.com/sayedali1/printf/blob/main/print_unsig.c), [x](https://github.com/sayedali1/printf/blob/main/print_lowerhex.c), [X](https://github.com/sayedali1/printf/blob/main/print_upperhex.c)
+The `unsigned int` argument is transformed into an octal (`o`), decimal (`u`), or hexadecimal (`x` and `X`) representation without any sign. The letters `abcdef` are utilized for `x` conversions and the letters `ABCDEF` are used for `X` conversions.
+
+Example `main.c`:
+```
+int main(void)
+{
+    _printf("%o\n", 77);
+}
+```
+Output:
+```
+115
+```
+
+#### [c](https://github.com/sayedali1/printf/blob/main/_putchar.c)
+The `int` argument is transformed into an `unsigned char` representation.
+
+Example `main.c`:
+```
+int main(void)
+{
+    _printf("%c\n", 48);
+}
+```
+Output:
+```
+0
+```
+
+#### [s](https://github.com/sayedali1/printf/blob/main/printstr.c)
+The `const char *` argument is assumed to be a pointer to an array of characters (i.e., a pointer to a string). Characters from the array are written out starting with the first element of the array and ending at, but not including, the null byte terminator (`\0`).
+
+Example `main.c`:
+```
+int main(void)
+{
+    _printf("%s\n", "Hello, World!");
+}
+```
+Output:
+```
+Hello, World!
+```
+
+#### [r](https://github.com/sayedali1/printf/blob/main/print_rev.c)
+Similar to the `s` conversion specifier, the `const char *` argument is assumed to be a pointer to an array of characters (i.e., a pointer to a string). However, in this case, characters from the array are written out in reverse order, starting with the null byte terminator (`\0`) and ending with the first element of the array.
+
+Example `main.c`:
+```
+int main(void)
+{
+    _printf("r\n", "Hello, World");
+}
+```
+Output:
+```
+dlroW ,olleH
+```
+
+#### [R](https://github.com/sayedali1/printf/blob/main/print_rot13.c)
+The `const char *` argument is expected to be a pointer to an array of characters (i.e., a pointer to a string). However, in this case, each character of the array is transformed into its corresponding character in ROT13 encoding before being written out. The ROT13 conversion specifier is represented by `R`.
+
+Example `main.c`:
+```
+int main(void)
+{
+    _printf("%R\n", "Hello, World");
+}
+```
+Output:
+```
+Uryyb, Jbeyq
+```
+
+#### [p](https://github.com/sayedali1/printf/blob/main/print_addr.c)
+The `p` conversion specifier is used to output the memory address of a pointer argument. The address is presented in hexadecimal format, which is a widely accepted representation of memory addresses. The address is preceded by the characters `0x` to indicate that it is in hexadecimal format. 
+
+Example `main.c`:
+```
+int main(void)
+{
+    char *str = "Hello, World";
+
+    _printf("%p\n", (void *)str);
+}
+```
+Output:
+```
+0x561a6d7bab5d
+```
+
+#### [%](https://github.com/sayedali1/printf/blob/main/_printf.c)
+The `%` conversion specifier is used to write out the character `%`. No argument is transformed, and the complete conversion specification is `%%`. This conversion specifier is useful in situations where the `%` character needs to be included in the output, but not as a conversion specifier.
+
+Example:
+```
+int main(void)
+{
+    _printf("%%\n");
+}
+```
+Output:
+```
+%
+```
+#### [flag (+,(space), #)](/flag.c)
+
+`+` :Forces to precede the result with a plus or minus sign (+ or -) even for positive numbers. By default, only negative numbers are preceded with a -ve sign.
+
+`(space)`: If no sign is going to be written, a blank space is inserted before the value
+
+`#` : Used with o, x or X specifiers the value is preceded with 0, 0x or 0X respectively for values different than zero. Used with e, E and f, it forces the written output to contain a decimal point even if no digits would follow. By default, if no digits follow, no decimal point is written. Used with g or G the result is the same as with e or E but trailing zeros are not removed.
+
+## Authors
+
+* [Sayed Ali](https://github.com/sayedali1)
+* [Mohamed Reda](https://github.com/alexnder394)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/sayedali1/printf/blob/main/LICENSE) file for details.
+
+## Acknowledgements :pray:
+
+The `_printf` function emulates functionality of the C standard library
+function `printf`. This README borrows from the Linux man page
+[printf(3)](https://linux.die.net/man/3/printf).
+
+This program was written as part of the curriculum for ALX Software Engineering Programme.
+
+The ALX Software Engineering Programme is a fully-funded scholarship programme. As part of the African Leadership Group, their mission is to transform the future of Africa by creating 2M job opportunities by 2030 for young African talent. For more information, visit [this link](https://www.alxafrica.com/).
